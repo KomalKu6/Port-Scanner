@@ -1,4 +1,4 @@
-# Port-Scanner   [Day 1 – Cybersecurity Automation Tools]
+# Port-Scanner   Day 1 – Cybersecurity Automation Tools
 
 Write a Python script that scans open ports on a target IP
 
@@ -31,3 +31,15 @@ connect_ex():     Attempts to connect to the port
 result == 0:     	Means port is open
 settimeout(0.5): 	Prevents hanging on unresponsive ports
 try/except: 	    Avoids crashes from network errors
+
+note:
+connect_ex() -> returns a numeric error code, which is easier to check (0 = success)
+socket.socket() -> Creates a new TCP socket
+
+Why Are We Scanning Ports?
+Port scanning = digital door knocking
+Real Example:
+Hacker scans a cloud IP. Finds port 8080 open.
+Tries HTTP request: sees Jenkins login page.
+Default creds work. Full server access.
+
