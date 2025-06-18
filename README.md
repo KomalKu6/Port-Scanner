@@ -32,9 +32,23 @@ result == 0:     	Means port is open
 settimeout(0.5): 	Prevents hanging on unresponsive ports
 try/except: 	    Avoids crashes from network errors
 
+----------------------------------------------------  
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+-----------------------------------------------------
+-> We create a TCP socket:
+-> AF_INET: means IPv4
+-> SOCK_STREAM: means TCP connection
+-> This is like opening a door and knocking on a port.
+
 note:
 connect_ex() -> returns a numeric error code, which is easier to check (0 = success)
 socket.socket() -> Creates a new TCP socket
+socket.AF_INET: IPv4 address family
+socket.SOCK_STREAM: TCP socket (not UDP)
+s.settimeout(0.5): Timeout in seconds (faster scanning)
+s.connect_ex(): Tries to connect to (target, port)
+Returns 0 → Success (port is open)
+Any other code → Failed (port closed or filtered)
 
 Why Are We Scanning Ports?
 Port scanning = digital door knocking
